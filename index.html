@@ -1534,26 +1534,14 @@ body.dark-theme .review-option.wrong .option-letter {
 }
 </style>
 
+<script src="data/grade8_1.js"></script>
+<script src="data/grade8_2.js"></script>
+<script src="data/grade9_1.js"></script>
+<script src="data/grade9_2.js"></script>
+
 <script>
-async function loadQuestionFile(url) {
-    const response = await fetch(url);
-    const text = await response.text();
-    eval(text);
-}
-
-async function loadAllQuestionBanks() {
-    const base = "https://raw.githubusercontent.com/linncc/Physics/refs/heads/main/";
-
-    await loadQuestionFile(base + "grade8_1.js");
-    await loadQuestionFile(base + "grade8_2.js");
-    await loadQuestionFile(base + "grade9_1.js");
-    await loadQuestionFile(base + "grade9_2.js");
-}
-
-
 window.questionBank = window.questionBank || {};
-const imagePath = "https://raw.githubusercontent.com/linncc/Physics/main/images/";
-
+const imagePath = "data/images/";
 
 questionBank["中考"] = {
     "chapters": {
@@ -1821,11 +1809,9 @@ function shuffleArray(arr) {
     return newArr;
 }
 
-document.addEventListener('DOMContentLoaded', async function() {
-    await loadAllQuestionBanks();
+document.addEventListener('DOMContentLoaded', function() {
     initQuestionBank();
 });
-
 </script>
 </head>
 
